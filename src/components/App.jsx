@@ -51,7 +51,7 @@ export class App extends Component {
     const realItemContacts = contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
 
     return (
-      <div>
+      <div style={{ width: 400, marginLeft: 400 }}>
         <Title title="Phonebook" />
         <ContactForm onAdd={this.addContact} />
         <Title title="Contacts" />
