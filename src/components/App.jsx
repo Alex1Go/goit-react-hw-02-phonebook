@@ -14,8 +14,7 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: ''
+  
   };
 
   addContact = newContact => {
@@ -49,7 +48,7 @@ export class App extends Component {
 
   render() {
     const { contacts } = this.state;
-    // const realItemContacts = contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
+    const realItemContacts = contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
 
     return (
       <div>
@@ -57,7 +56,7 @@ export class App extends Component {
         <ContactForm onAdd={this.addContact} />
         <Title title="Contacts" />
        <Filter value={this.state.filter}  onFilter={this.filterContact} />
-        <ContactList   contacts={contacts} onDeleteContact={this.deleteContact}/>
+        <ContactList   contacts={realItemContacts} onDeleteContact={this.deleteContact}/>
       </div>
     );
   };
