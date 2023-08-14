@@ -4,7 +4,7 @@ export const Filter = ({value, onFilter}) => {
             <input
                 type="text"
                 value={value}
-                onFilter={onFilter}
+                onChange={onFilter}
             />
         </label>
     );

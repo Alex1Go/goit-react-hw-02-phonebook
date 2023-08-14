@@ -56,7 +56,7 @@ export class App extends Component {
         <Title title="Phonebook" />
         <ContactForm onAdd={this.addContact} />
         <Title title="Contacts" />
-       <Filter value={this.state.value} onFilter={this.filterContact} />
+       <Filter value={this.state.filter}  onFilter={this.filterContact} />
         <ContactList   contacts={contacts} onDeleteContact={this.deleteContact}/>
       </div>
     );
