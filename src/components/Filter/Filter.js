@@ -1,10 +1,10 @@
-export const Filter = () => {
+export const Filter = ({value, onFilter}) => {
     return (
         <label>Find contacts by name
             <input
                 type="text"
-                // value={value}
-                // onChange={onChange}
+                value={value}
+                onFilter={onFilter}
             />
         </label>
     );

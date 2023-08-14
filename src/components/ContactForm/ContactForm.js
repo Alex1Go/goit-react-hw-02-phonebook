@@ -1,6 +1,7 @@
 import { Formik, Field, Form } from 'formik';
+import { nanoid } from 'nanoid';
 
-export const ContactForm = () => {
+export const ContactForm = ({onAdd}) => {
     return (
         <>
             <Formik
@@ -8,7 +9,12 @@ export const ContactForm = () => {
                     name: '',
                     number: '',
                 }}
-                onSubmit={async (values) => {}}
+                
+                onSubmit={(values, actions) => {
+                    onAdd({...values, id:nanoid()});
+                    actions.resetForm();
+                    
+                }}
             >
                 <Form>
                     <label>Name
@@ -17,7 +23,7 @@ export const ContactForm = () => {
                             name="name"
                             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                            required placeholder="Jane Snow" />
+                            placeholder="Jane Snow" />
                     </label>
                     <label>Number
                         <Field
