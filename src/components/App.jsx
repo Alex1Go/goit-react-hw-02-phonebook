@@ -49,14 +49,14 @@ export class App extends Component {
 
   render() {
     const { contacts } = this.state;
-    const realItemContacts = contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
+    // const realItemContacts = contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
 
     return (
       <div>
         <Title title="Phonebook" />
         <ContactForm onAdd={this.addContact} />
         <Title title="Contacts" />
-        <Filter value={realItemContacts} onFilter={this.filterContact} />
+       <Filter value={this.state.value} onFilter={this.filterContact} />
         <ContactList   contacts={contacts} onDeleteContact={this.deleteContact}/>
       </div>
     );
